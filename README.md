@@ -20,6 +20,12 @@ yarn start
 
 Parcel will build to the `./dist` folder.
 
+## Dependencies
+
+The app is using Bootstrap for CSS and components.
+
+The app is vanilla HTML and Javascript for now (and SASS).
+
 ## Editing content
 
 The main page is built from a markdown file called `main.md`.
