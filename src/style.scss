@@ -6,6 +6,23 @@ body, html {
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  .form-group {
+    label {
+      width: 100%;
+      display: block;
+    }
+    input, select {
+      display: inline-block;
+      width: auto;
+      min-width: 200px;
+      text-align: left;
+
+      &#contact-email {
+        min-width: 400px;
+      }
+    }
+  }
 }
 
 #header {
