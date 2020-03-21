@@ -13,7 +13,7 @@
     "sass": "^1.26.3"
   },
   "scripts": {
-    "start": "parcel src/index.html --out-dir docs --public-url ./frontend/",
+    "start": "parcel src/index.html --out-dir docs --public-url /frontend/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT"
