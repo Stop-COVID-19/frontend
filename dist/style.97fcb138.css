@@ -1,0 +1,23 @@
+body, html {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#header {
+  margin: 20px 20px 0 20px;
+}
+
+#content {
+  padding: 40px 20px 20px 20px;
+  flex: 1;
+}
+#content.gray {
+  background: #eee;
+}
+
+/*# sourceMappingURL=/style.97fcb138.css.map */

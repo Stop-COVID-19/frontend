@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["main","require","document","getElementById","innerHTML"],"mappings":"AAAA,IAAMA,IAAI,GAAGC,OAAO,CAAC,WAAD,CAApB;;AACAC,QAAQ,CAACC,cAAT,CAAwB,SAAxB,EAAmCC,SAAnC,GAA+CJ,IAA/C","file":"src.e31bb0bc.js","sourceRoot":"../src","sourcesContent":["const main = require('./main.md');\ndocument.getElementById('content').innerHTML = main;\n"]}
