@@ -4,7 +4,6 @@ jobs:
     build-deploy-site:
         docker: 
             - image: circleci/python:3-node
-        working_directory: ~/
 
         parameters:
             prod-bucket-name:
