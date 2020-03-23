@@ -48,12 +48,12 @@ jobs:
                 name: deploy to AWS
                 command: |
                     if [[ ${CIRCLE_BRANCH} == "master" ]]; then 
-                        aws s3 sync ./dist/* \ 
+                        aws s3 sync ./docs/ \ 
                             s3://<<parameters.prod-bucket-name>> --delete
                         exit 0
                     fi
                     if [[ ${CIRCLE_BRANCH} == "dev" ]]; then 
-                        aws s3 sync ./dist/* \ 
+                        aws s3 sync ./docs/ \ 
                           s3://<<parameters.dev-bucket-name>> --delete
                         exit 0
                     fi
