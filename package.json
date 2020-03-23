@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "parcel src/index.html --out-dir docs --public-url /frontend/",
+    "build": "parcel build src/index.html --out-dir docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT"
