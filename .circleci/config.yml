@@ -2,9 +2,10 @@ version: 2.1
 
 jobs: 
     build-deploy-site:
-        executor:
-            name: node/default
-            tag: '10.4'
+        docker: 
+            - image: circleci/python:3-node
+            working_directory: ~/
+
         parameters:
             prod-bucket-name:
                 type: string 
@@ -28,10 +29,7 @@ jobs:
             - run: 
                 name: install AWS CLI 
                 command: |
-                    sudo apt-get -y -qq update
-                    sudo apt-get -y -qq install python3-dev
-                    curl -O https://bootstrap.pypa.io/get-pip.py
-                    python3.4 get-pip.py --user
+                    
                     pip install awscli --upgrade --user
 
             - checkout
