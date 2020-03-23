@@ -1,0 +1,77 @@
+version: 2.1
+
+jobs: 
+    build-deploy-site:
+        executor:
+            name: node/default
+            tag: '10.4'
+        parameters:
+            prod-bucket-name:
+                type: string 
+                
+            dev-bucket-name:
+                type: string
+                
+            aws-access-key-id:
+                type: env_var_name
+                default: AWS_ACCESS_KEY_ID
+              
+            aws-secret-access-key:
+                type: env_var_name
+                default: AWS_SECRET_ACCESS_KEY
+    
+            aws-region:
+                type: env_var_name
+                default: AWS_DEFAULT_REGION
+
+        steps: 
+            - run: 
+                name: install AWS CLI 
+                command: |
+                    apk add --update python python-dev py-pip build-base
+                    pip install awscli
+
+            - checkout
+
+            - node/with-cache:
+                steps:
+                    - run: yarn
+
+            - run:
+                name: Configure AWS 
+                command: |
+                    aws configure set aws_access_key_id  <<parameters.aws-access-key-id>> && \
+                    aws configure set aws_secret_access_key <<parameters.aws-secret-access-key>>
+
+            - run:
+                name: deploy to AWS
+                command: |
+                    if [ "${CIRCLE_BRANCH}" = "master" ]; then 
+                        aws s3 sync ./dist/* \ 
+                            s3"//<<parameters.prod-bucket-name>> --delete
+                    elif [ "${CIRCLE_BRANCH}" = "dev" ]; then 
+                        aws s3 sync ./dist/* \ 
+                            s3"//<<parameters.dev-bucket-name>> --delete
+                    else
+                        echo "Not appropriate branch ${CIRCLE_BRANCH}"
+                    fi
+
+             
+orbs:
+  node: circleci/node@1.1.6
+
+workflows:
+  version: 2
+  build-deploy-stack:
+    jobs:      
+      - build-deploy-site:
+            filters: 
+                branches: 
+                    only: 
+                        - dev 
+                        - master
+            dev-bucket-name: ${DEV_BUCKET}
+            prod-bucket-name: ${PROD_BUCKET}
+            
+            
+    
