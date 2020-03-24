@@ -7,11 +7,11 @@ body, html {
   flex-direction: column;
   height: 100%;
 
+  label {
+    cursor: pointer;
+  }
+
   .form-group {
-    label {
-      width: 100%;
-      display: block;
-    }
     input, select {
       display: inline-block;
       width: auto;
@@ -23,17 +23,87 @@ body, html {
       }
     }
   }
-}
 
-#header {
-  margin: 20px 20px 0 20px;
-}
+  #header {
+    margin: 20px 20px 0 20px;
+  }
 
-#content {
-  padding: 40px 20px 20px 20px;
-  flex: 1;
+  #content {
+    padding: 40px 20px 20px 20px;
+    flex: 1;
 
-  &.gray {
-    background: #eee;
+    &.gray {
+      background: #eee;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+
+    input {
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
+
+  .form-group-age {
+    width: 100px;
+  }
+  .form-group-date {
+    width: 120px;
+  }
+
+  .row {
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 10px;
+  }
+
+  .other {
+    margin-left: 16px;
+    label {
+    }
+    textarea {
+      height: 40px;
+      display: block;
+      clear: both;
+    }
+  }
+
+  .form-group-location {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+
+    .location-groups {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      @media screen and (max-width: 950px) {
+        flex-direction: column;
+
+        label {
+          width: 80px;
+        }
+
+        .location-group {
+          margin-bottom: 10px;
+        }
+      }
+
+      .location-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 20px;
+
+        label {
+          margin: 0 5px 0 0;
+        }
+      }
+    }
   }
 }

@@ -7,9 +7,8 @@ body, html {
   flex-direction: column;
   height: 100%;
 }
-#root .form-group label {
-  width: 100%;
-  display: block;
+#root label {
+  cursor: pointer;
 }
 #root .form-group input, #root .form-group select {
   display: inline-block;
@@ -20,17 +19,73 @@ body, html {
 #root .form-group input#contact-email, #root .form-group select#contact-email {
   min-width: 400px;
 }
-
-#header {
+#root #header {
   margin: 20px 20px 0 20px;
 }
-
-#content {
+#root #content {
   padding: 40px 20px 20px 20px;
   flex: 1;
 }
-#content.gray {
+#root #content.gray {
   background: #eee;
+}
+#root .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+}
+#root .form-group input {
+  min-width: 0;
+  max-width: 100%;
+}
+#root .form-group-age {
+  width: 100px;
+}
+#root .form-group-date {
+  width: 120px;
+}
+#root .row {
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 10px;
+}
+#root .other {
+  margin-left: 16px;
+}
+#root .other textarea {
+  height: 40px;
+  display: block;
+  clear: both;
+}
+#root .form-group-location {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+#root .form-group-location .location-groups {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+@media screen and (max-width: 950px) {
+  #root .form-group-location .location-groups {
+    flex-direction: column;
+  }
+  #root .form-group-location .location-groups label {
+    width: 80px;
+  }
+  #root .form-group-location .location-groups .location-group {
+    margin-bottom: 10px;
+  }
+}
+#root .form-group-location .location-groups .location-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+#root .form-group-location .location-groups .location-group label {
+  margin: 0 5px 0 0;
 }
 
 /*# sourceMappingURL=/frontend/style.97fcb138.css.map */
